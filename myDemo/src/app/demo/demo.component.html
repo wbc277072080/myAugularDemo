@@ -1,0 +1,49 @@
+<h1 class = 'title'>Simple todo App</h1>
+<p></p>
+<a class = "home" href="">Home</a>
+
+  <form class = 'well'>
+    <div class="todo-input-area">
+    <input type="text" [(ngModel)]="title" name = 'title' id='input-title' class = 'input-group' placeholder="title"/>
+    <input type="text" [(ngModel)]="description" name ='description' id='input-desc' class = 'input-group' placeholder="description"/>
+    <input type="date" [(ngModel)]="duedate" name = 'duedate' id='input-due' class = 'input-group' placeholder="due date"/>
+  <p></p>
+  <button class="add-btn" (click)="addDemo()" >Add</button>
+</div>
+  </form>
+  
+  
+
+<p></p>
+<p></p>
+
+
+<table>
+  <thead>
+  <th>complete</th>
+  <th>title</th>
+  <th>description</th>
+  <th>due date</th>
+  <th>modified date</th>
+  <th>delete</th>
+  <th>update</th>
+  <th>read more</th>
+  </thead>
+  <tbody>
+    <tr class="todo-item" *ngFor="let todo of demos ">
+      <td><input type="checkbox"  [checked]='todo.isdone' (click)="updateStatus(todo)"></td>
+      <td class="titles">{{todo.title}}</td>
+      <td class="description">{{todo.description}}</td>
+      <td class="due">{{todo.duedate}}</td>
+      <td class="modifieddate">{{todo.modifiedDate}}</td>
+      <td> <input type="button" (click)="deleteDemo(todo)" value="Delete" class="update-btn"></td>
+      <td><input type="button" (click)="updateDemo(todo)" value="Update" class="update-btn"></td>
+      <td class="readmore"><a href={{todo.id}}>readmore</a></td>
+  </tr>
+  </tbody>
+  
+  </table>
+
+
+
+<router-outlet></router-outlet>

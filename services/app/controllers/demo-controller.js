@@ -28,7 +28,7 @@ exports.save=(request,response)=>{
         response.status(201);
         response.json(savedDemo);
     };
-    const promise = todoService.save(demo);
+    const promise = demoService.save(demo);
     promise
     .then(result)
     .catch(renderErrorResponse(response));
@@ -41,7 +41,7 @@ exports.get = (request, response) => {
         response.status(200);
         response.json(demo);
     };
-    const promise = todoService.get(demoId);
+    const promise = demoService.get(demoId);
     promise
         .then(result)
         .catch(renderErrorResponse(response));
